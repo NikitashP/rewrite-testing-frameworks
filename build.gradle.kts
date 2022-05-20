@@ -156,9 +156,14 @@ dependencies {
     testRuntimeOnly("com.squareup.okhttp3:mockwebserver:3.+")
     testRuntimeOnly("org.testng:testng:6.8")
 
+    testImplementation("org.jmock:jmock:2.12.0")
+    testImplementation("org.jmock:jmock-junit4:2.12.0")
+
     "testWithMockito_3RuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:latest.release")
     "testWithMockito_3RuntimeOnly"("junit:junit:latest.release")
     "testWithMockito_3RuntimeOnly"("org.mockito:mockito-core:3.+")
+    "testWithMockito_3RuntimeOnly"("org.jmock:jmock:2.12.0")
+    "testWithMockito_3RuntimeOnly"("org.jmock:jmock-junit4:2.12.0")
 }
 
 java {

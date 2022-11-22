@@ -41,6 +41,8 @@ configure<ReleasePluginExtension> {
     defaultVersionStrategy = SNAPSHOT(project)
 }
 
+tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
+
 dependencyCheck {
     analyzers.assemblyEnabled = false
     suppressionFile = "suppressions.xml"
@@ -124,7 +126,9 @@ dependencies {
     implementation("org.openrewrite:rewrite-maven:$rewriteVersion")
     runtimeOnly("com.fasterxml.jackson.core:jackson-core:2.13.4")
     runtimeOnly("org.openrewrite:rewrite-java-17:$rewriteVersion")
-
+    runtimeOnly("org.jmock:jmock:2.12.0")
+    runtimeOnly("org.jmock:jmock-junit4:2.12.0")
+    runtimeOnly("org.mockito:mockito-core:3.+")
     runtimeOnly("org.assertj:assertj-core:3.+")
     runtimeOnly("io.cucumber:cucumber-java8:7.+")
     runtimeOnly("io.cucumber:cucumber-java:7.+")
@@ -159,6 +163,8 @@ dependencies {
     "testWithMockito_3RuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:latest.release")
     "testWithMockito_3RuntimeOnly"("junit:junit:latest.release")
     "testWithMockito_3RuntimeOnly"("org.mockito:mockito-core:3.+")
+    "testWithMockito_3RuntimeOnly"("org.jmock:jmock:2.12.0")
+    "testWithMockito_3RuntimeOnly"("org.jmock:jmock-junit4:2.12.0")
 }
 
 java {
@@ -206,6 +212,7 @@ tasks.withType<Javadoc> {
     // assertTrue(boolean condition) -> assertThat(condition).isTrue()
     // warning - invalid usage of tag >
     // see also: https://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
+    enabled = false
     (options as StandardJavadocDocletOptions).addStringOption("Xdoclint:none", "-quiet")
 }
 

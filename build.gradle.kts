@@ -41,6 +41,8 @@ configure<ReleasePluginExtension> {
     defaultVersionStrategy = SNAPSHOT(project)
 }
 
+tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
+
 dependencyCheck {
     analyzers.assemblyEnabled = false
     suppressionFile = "suppressions.xml"

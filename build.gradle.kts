@@ -211,6 +211,7 @@ tasks.withType<Javadoc> {
     // assertTrue(boolean condition) -> assertThat(condition).isTrue()
     // warning - invalid usage of tag >
     // see also: https://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
+    enabled = false
     (options as StandardJavadocDocletOptions).addStringOption("Xdoclint:none", "-quiet")
 }
 

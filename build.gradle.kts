@@ -124,7 +124,9 @@ dependencies {
     implementation("org.openrewrite:rewrite-maven:$rewriteVersion")
     runtimeOnly("com.fasterxml.jackson.core:jackson-core:2.13.4")
     runtimeOnly("org.openrewrite:rewrite-java-17:$rewriteVersion")
-
+    runtimeOnly("org.jmock:jmock:2.12.0")
+    runtimeOnly("org.jmock:jmock-junit4:2.12.0")
+    runtimeOnly("org.mockito:mockito-core:3.+")
     runtimeOnly("org.assertj:assertj-core:3.+")
     runtimeOnly("io.cucumber:cucumber-java8:7.+")
     runtimeOnly("io.cucumber:cucumber-java:7.+")
@@ -155,9 +157,6 @@ dependencies {
     testRuntimeOnly("pl.pragmatists:JUnitParams:1.+")
     testRuntimeOnly("com.squareup.okhttp3:mockwebserver:3.+")
     testRuntimeOnly("org.testng:testng:6.8")
-
-    testImplementation("org.jmock:jmock:2.12.0")
-    testImplementation("org.jmock:jmock-junit4:2.12.0")
 
     "testWithMockito_3RuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:latest.release")
     "testWithMockito_3RuntimeOnly"("junit:junit:latest.release")
